@@ -24,7 +24,7 @@ jobs:
 
     - name: Build
       run: |
-        npm i
+        npm init
         npm run validate
         npm run build
 
