@@ -9,7 +9,9 @@ const LodashModuleReplacementPlugin = require("lodash-webpack-plugin");
 const config = {
   entry: {
     about: "./src/pages/About.js",
-    home: "./src/pages/Home.js",
+    TodoItem: "./src/components/TodoItem.js",
+    TodoList: { import: "./src/components/TodoList.js", dependOn: ["TodoItem"] },
+    home: { import: "./src/pages/Home.js", dependOn: ["TodoList"] },
     index: { import: "./src/index.js", dependOn: ["about", "home"] },
   },
   plugins: [
