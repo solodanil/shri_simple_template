@@ -10,7 +10,7 @@ const config = {
   entry: {
     about: "./src/pages/About.js",
     home: "./src/pages/Home.js",
-    main: "./src/index.js",
+    index: { import: "./src/index.js", dependOn: ["about", "home"] },
   },
   plugins: [
     new HtmlWebpackPlugin({
