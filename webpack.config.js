@@ -101,6 +101,9 @@ const config = {
     },
   },
   target: "web",
+  alias: {
+    "crypto-browserify": path.resolve(__dirname, "src/crypto-fall.js"),
+  },
   resolve: {
     fallback: {
       buffer: require.resolve("buffer"),
