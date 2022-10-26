@@ -4,7 +4,6 @@
   "homepage": "http://asadrtdinov.github.io/shri_simple_template",
   "private": true,
   "dependencies": {
-    "buffer": "^6.0.3",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-webpack-plugin": "^3.2.0",
     "gh-pages": "^4.0.0",
@@ -19,8 +18,8 @@
     "redux": "^4.1.0",
     "redux-observable": "^2.0.0",
     "rxjs": "^7.1.0",
-    "stream": "^0.0.2",
-    "stylelint-config-prettier": "^9.0.3"
+    "stylelint-config-prettier": "^9.0.3",
+    "uuid": "^9.0.0"
   },
   "scripts": {
     "start": "webpack serve",
