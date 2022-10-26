@@ -34,7 +34,7 @@ const config = {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].[contenthash].js",
   },
-  mode: "development",
+  mode: "production",
   devServer: {
     static: path.resolve(__dirname, "./dist"),
     compress: true,
@@ -101,14 +101,11 @@ const config = {
     },
   },
   target: "web",
-  alias: {
-    "crypto-browserify": path.resolve(__dirname, "src/crypto-fall.js"),
-  },
+
   resolve: {
     fallback: {
       buffer: require.resolve("buffer"),
       stream: false,
-      crypto: require.resolve("crypto"),
     },
     modules: [
       path.resolve(__dirname, "node_modules"),
