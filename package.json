@@ -18,8 +18,8 @@
     "redux": "^4.1.0",
     "redux-observable": "^2.0.0",
     "rxjs": "^7.1.0",
-    "stream": "^0.0.2",
-    "stylelint-config-prettier": "^9.0.3"
+    "stylelint-config-prettier": "^9.0.3",
+    "uuid": "^9.0.0"
   },
   "scripts": {
     "start": "webpack serve",
