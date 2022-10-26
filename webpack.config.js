@@ -2,8 +2,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const StatoscopePlugin = require("@statoscope/webpack-plugin").default;
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const ESLintPlugin = require("eslint-webpack-plugin");
 const LodashModuleReplacementPlugin = require("lodash-webpack-plugin");
 
 const config = {
@@ -23,8 +21,6 @@ const config = {
       saveOnlyStats: false,
       open: false,
     }),
-    new MiniCssExtractPlugin(),
-    new ESLintPlugin(),
     new LodashModuleReplacementPlugin({
       collections: true,
       paths: true,
@@ -43,28 +39,20 @@ const config = {
   },
   module: {
     rules: [
-      // rules — это массив правил
-      // добавим в него объект правил для бабеля
       {
-        // регулярное выражение, которое ищет все js файлы
-        test: /\.(js|jsx)$/,
-        // при обработке этих файлов нужно использовать babel-loader
+        test: /\.js$/i,
         use: "babel-loader",
-        // исключает папку node_modules, файлы в ней обрабатывать не нужно
-        exclude: "/node_modules/",
+        exclude: /node_modules/,
+        resolve: {
+          extensions: [".js"],
+        },
+        sideEffects: false,
       },
       {
-        test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: "css-loader",
-            options: {
-              importLoaders: 1,
-            },
-          },
-        ],
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
       },
+      // @TODO css rule
     ],
   },
   optimization: {
@@ -102,9 +90,13 @@ const config = {
   target: "web",
 
   resolve: {
+    alias: {
+      "crypto-browserify": path.resolve(__dirname, "src/crypto-fall.js"),
+    },
     fallback: {
       buffer: require.resolve("buffer"),
       stream: false,
+      crypto: require.resolve("crypto"),
     },
     modules: [
       path.resolve(__dirname, "node_modules"),
