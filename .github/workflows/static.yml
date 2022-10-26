@@ -1,12 +1,12 @@
 name: Deploy to pages
 on:
-  push:
-    branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+    types:
+      - closed
 
 jobs:
-  build:
+  if_merged:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
