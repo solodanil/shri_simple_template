@@ -5,15 +5,16 @@ import { Switch, Route, Link } from 'react-router-dom';
 import { About } from './pages/About';
 import { Home } from './pages/Home';
 
+
 export function Application() {
   return (
     <div>
       <nav>
         <Link data-testid="link-home" to="/">Home</Link>
-        <Link to="/about">About</Link>
+        <Link to="/shri_simple_template/about">About</Link>
       </nav>
       <Switch>
-        <Route path="/about">
+        <Route path="/shri_simple_template/about">
           <About />
         </Route>
         <Route path="/">
