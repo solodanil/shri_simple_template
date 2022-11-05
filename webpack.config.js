@@ -4,7 +4,6 @@ const { template } = require('lodash');
 const StatoscopePlugin = require('@statoscope/webpack-plugin').default;
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
-const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 
 const config = {
   entry: {
